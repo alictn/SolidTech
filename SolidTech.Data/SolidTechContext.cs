@@ -21,10 +21,7 @@ namespace SolidTech.Data
         public DbSet<Message> Messages { get; set; }
         public DbSet<MessageType> MessageTypes { get; set; }
         public DbSet<ProjectImagePath> ProjectImagePaths { get; set; }
-
         public DbSet<Role> Roles { get; set; }
-      
-
         public DbSet<User> Users { get; set; }
 
         //Db Model oluşturma aşamasında çağrılan bir metottur 
@@ -33,7 +30,7 @@ namespace SolidTech.Data
         //Seeding   : Veri tabanı tablolarına default değerler atama işlemleri burda yapılır 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+
             modelBuilder.ApplyConfiguration(new ProjectCategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProjectConfiguration());
             modelBuilder.ApplyConfiguration(new SolutionConfiguration());
@@ -41,8 +38,8 @@ namespace SolidTech.Data
             modelBuilder.ApplyConfiguration(new CustomerCommentConfiguration());
             modelBuilder.ApplyConfiguration(new MessageConfiguration());
             modelBuilder.ApplyConfiguration(new ProjectImagePathConfiguration());
-          
-           
+
+
             modelBuilder.SeedDataCreate();
 
             base.OnModelCreating(modelBuilder);
@@ -52,10 +49,10 @@ namespace SolidTech.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //MsSql
-            //optionsBuilder.UseSqlServer("Server=.;Database=SolidTechDb;Trusted_Connection=True;Encrypt=False");
+            optionsBuilder.UseSqlServer("Server=ALI\\MSSQLSERVER01;Database=SolidTechDb;Trusted_Connection=True;Encrypt=False");
             //Not schema adı küçük olamk durumda ve schema adı Search Path ten sonra belirtilmek zorunda 
 
-            optionsBuilder.UseNpgsql(@"Host=localhost;Database=test2;Username=postgres;Password=123456;Search Path=public");
+            //optionsBuilder.UseNpgsql(@"Host=localhost;Database=test2;Username=postgres;Password=123456;Search Path=public");
         }
     }
 }

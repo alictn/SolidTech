@@ -11,8 +11,8 @@
                    .HasMaxLength(200);
 
             builder.Property(x => x.Image)
-             .HasMaxLength(int.MaxValue);
-            
+                   .HasMaxLength(int.MaxValue);
+
 
             builder.Property(x => x.Order)
                    .IsRequired();

@@ -15,7 +15,6 @@
 
             builder.Property(x => x.CreaDate)
                    .IsRequired();
-
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+﻿//using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace SolidTech.Presentation.Areas.Admin.Controllers
 {
@@ -17,7 +16,8 @@ namespace SolidTech.Presentation.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult GetFile(IFormFile file)
         {
-            if (file != null){
+            if (file != null)
+            {
 
                 var fileName = file.FileName;
                 var filePath = Path.Combine(_uploadsFolderName, fileName);
@@ -29,7 +29,7 @@ namespace SolidTech.Presentation.Areas.Admin.Controllers
 
                 var folder_new = new FileStream(filePath, FileMode.Create);
 
-       
+
                 file.CopyTo(folder_new);
 
 

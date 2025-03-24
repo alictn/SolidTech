@@ -2,7 +2,7 @@
 {
     public class SolutionService : ISolutionService
     {
-        //radonly değişkenlere sadece constructorda değer atanır buda onun const ile farkını beirler
+        //readonly değişkenlere sadece constructorda değer atanır buda onun const ile farkını beirler
 
 
         private readonly SolidTechContext _context;
@@ -46,7 +46,7 @@
         public Solution GetSolutionById(int id)
         {
             var result = _context.Solutions.FirstOrDefault(s => s.SolutionId == id);
-             
+
             if (result != null)
             {
                 return result;
