@@ -20,13 +20,17 @@ namespace SolidTech.Presentation.Controllers
         [HttpPost]
         public IActionResult AddAcontact(string name, string email, string subject, string message)
         {
+            int messages = _messageService.AddMessage(
+            new MessageDto
+            {
+                Email = email,
+                Name = name,
+                MessageHeader = subject,
+                MessageContent = message,
+                MessageTypeId = 2
+            });
 
-            int messages = _messageService.AddMessage(new MessageDto { Email = email, Name = name, MessageHeader = subject, MessageContent = message ,MessageTypeId  = 2 });
-
-
-
-            return RedirectToAction("Index","Contact");
-
+            return RedirectToAction("Index", "Contact");
         }
     }
 }
